@@ -1,3 +1,3 @@
-require('rehatski.options')
-require('rehatski.keymaps')
-require('rehatski.lazy')
+require("rehatski.options")
+require("rehatski.keymaps")
+require("rehatski.lazy")

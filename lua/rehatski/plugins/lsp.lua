@@ -1,23 +1,46 @@
 return {
   {
-    -- LSP Configuration & Plugins
-    'neovim/nvim-lspconfig',
-    dependencies = {
-      -- Automatically install LSPs to stdpath for neovim
-      { 'williamboman/mason.nvim', config = true },
-      'williamboman/mason-lspconfig.nvim',
-
-      -- Useful status updates for LSP
-      -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {} },
-
-      -- Additional lua configuration, makes nvim stuff amazing!
-      'folke/neodev.nvim',
-    },
+    'williamboman/mason.nvim',
+    lazy = false,
     config = function()
       require('mason').setup()
-      require('mason-lspconfig').setup()
+    end,
+  },
+  {
+    'williamboman/mason-lspconfig.nvim',
+    config = function()
+      require('mason-lspconfig').setup({
+        ensure_installed = { 'lua_ls', 'tsserver', 'html' }
+      })
+    end,
+  },
+  {
+    'neovim/nvim-lspconfig',
+    dependencies = {
+      'folke/neodev.nvim',
+      { 'j-hui/fidget.nvim', opts = {} },
+    },
+    lazy = false,
+    config = function()
       require('neodev').setup()
+      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+      local lspconfig = require('lspconfig')
+      lspconfig.tsserver.setup({
+        capabilities = capabilities,
+      })
+      lspconfig.html.setup({
+        capabilities = capabilities,
+      })
+      lspconfig.lua_ls.setup({
+        capabilities = capabilities,
+      })
+
+      vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, {})
+      vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
+      vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
+      vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, {})
+
     end,
   },
 }
+
