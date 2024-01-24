@@ -1,5 +1,7 @@
 local set = vim.opt
 
+
+set.signcolumn = 'yes'
 set.number = true
 set.relativenumber = true
 
@@ -33,7 +35,6 @@ set.shiftwidth = 4
 --set.hlsearch = false
 --set.incsearch = true
 --set.scrolloff = 8
---set.signcolumn = "yes"
 --set.updatetime = 100
 --set.timeoutlen = 300
 --set.mouse = 'a'

@@ -4,6 +4,8 @@ local keymap = vim.keymap
 global.mapleader = ' '
 global.maplocalleader = ' '
 
+
+keymap.set({'n', 'v'}, '<Space>', '<Nop>', { silent = true })
 keymap.set('i', 'jj', '<ESC>')
 
 keymap.set('n', 'x', '"_x')
