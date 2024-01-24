@@ -7,7 +7,6 @@ return {
 			vim.cmd.colorscheme 'gruvbox-baby'
 		end,
 	},
-	'tpope/vim-fugitive',
 	'tpope/vim-rhubarb',
 	'tpope/vim-sleuth',
 

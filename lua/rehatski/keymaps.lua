@@ -31,11 +31,11 @@ keymap.set('n', '<leader>tp', ':tabp<CR>')
 --keymap.set('i', '<C-h>', '<C-w>', opts)
 
 -- remap ^ and $ to H and L, respectively
-keymap.set('n', 'H', '^', opts)
-keymap.set('n', 'L', '$', opts)
+keymap.set('n', 'H', '^')
+keymap.set('n', 'L', '$')
 
 -- open up lazy.nvim UI
-keymap.set('n', '<leader>l', ':Lazy<CR>', opts)
+keymap.set('n', '<leader>l', ':Lazy<CR>')
 
 -- toggle undotree
 --keymap.set('n', '<C-u>', ':UndotreeToggle<CR>', opts)
@@ -50,8 +50,8 @@ keymap.set('n', '<leader>l', ':Lazy<CR>', opts)
 --keymap.set('n', '<C-x>', ':bd<CR>', opts)
 
 -- quickly switch between buffers
-keymap.set('n', '<', ':bp<CR>', opts)
-keymap.set('n', '>', ':bn<CR>', opts)
+keymap.set('n', '<', ':bp<CR>')
+keymap.set('n', '>', ':bn<CR>')
 
 -- quickly switch between windows
 --keymap.set('n', '<C-h>', '<C-w>h', opts)
