@@ -4,7 +4,7 @@ local set = vim.opt
 set.signcolumn = 'yes'
 set.number = true
 set.relativenumber = true
-
+set.spell = true
 set.wrap = false
 set.termguicolors = true
 

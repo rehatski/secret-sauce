@@ -11,17 +11,20 @@ keymap.set('i', 'jj', '<ESC>')
 keymap.set('n', 'x', '"_x')
 keymap.set('n', '<leader>nh', ':nohl<CR>')
 
+-- Splits
 keymap.set('n', '<leader>sv', '<C-w>v')
 keymap.set('n', '<leader>sh', '<C-w>s')
 keymap.set('n', '<leader>se', '<C-w>=')
 keymap.set('n', '<leader>sm', ':MaximizerToggle<CR>')
 keymap.set('n', '<leader>sx', ':close<CR>')
 
+-- Nav Panes
 keymap.set('n', '<C-h>', '<C-w>h')
 keymap.set('n', '<C-j>', '<C-w>j')
 keymap.set('n', '<C-k>', '<C-w>k')
 keymap.set('n', '<C-l>', '<C-w>l')
 
+-- Tabs
 keymap.set('n', '<leader>to', ':tabnew<CR>')
 keymap.set('n', '<leader>tx', ':tabclose<CR>')
 keymap.set('n', '<leader>tn', ':tabn<CR>')
