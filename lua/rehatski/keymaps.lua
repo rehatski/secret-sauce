@@ -1,52 +1,74 @@
 local global = vim.g
 local keymap = vim.keymap
 
-global.mapleader = ' '
-global.maplocalleader = ' '
+-- Modes
+--   normal_mode = "n",
+--   insert_mode = "i",
+--   visual_mode = "v",
+--   visual_block_mode = "x",
+--   term_mode = "t",
+--   command_mode = "c",
 
+global.mapleader = " "
+global.maplocalleader = " "
 
-keymap.set({'n', 'v'}, '<Space>', '<Nop>', { silent = true })
-keymap.set('i', 'jj', '<ESC>')
+-- Copy Pasta from https://github.com/ehllie/dotfiles/blob/7d8d42b8f74b3d65fa986353050859e7cc6c0fa7/neovim/nvim/lua/keymaps.lua#L33-L40
+-- TODO: Figure out how this is done
+local function close_floating()
+	for _, win in ipairs(vim.api.nvim_list_wins()) do
+		local config = vim.api.nvim_win_get_config(win)
+		if config.relative ~= "" then
+			vim.api.nvim_win_close(win, false)
+		end
+	end
+end
 
-keymap.set('n', 'x', '"_x')
-keymap.set('n', '<leader>nh', ':nohl<CR>')
+keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
+keymap.set("i", "jj", "<ESC>")
+keymap.set("n", "<leader>jj", function()
+	close_floating()
+end)
+
+keymap.set("n", "x", '"_x')
+keymap.set("n", "<leader>nh", ":nohl<CR>")
 
 -- Splits
-keymap.set('n', '<leader>sv', '<C-w>v')
-keymap.set('n', '<leader>sh', '<C-w>s')
-keymap.set('n', '<leader>se', '<C-w>=')
-keymap.set('n', '<leader>sm', ':MaximizerToggle<CR>')
-keymap.set('n', '<leader>sx', ':close<CR>')
+keymap.set("n", "<leader>sv", "<C-w>v")
+keymap.set("n", "<leader>sh", "<C-w>s")
+keymap.set("n", "<leader>se", "<C-w>=")
+keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>")
+keymap.set("n", "<leader>sx", ":close<CR>")
 
 -- Nav Panes
-keymap.set('n', '<C-h>', '<C-w>h')
-keymap.set('n', '<C-j>', '<C-w>j')
-keymap.set('n', '<C-k>', '<C-w>k')
-keymap.set('n', '<C-l>', '<C-w>l')
+keymap.set("n", "<C-h>", "<C-w>h")
+keymap.set("n", "<C-j>", "<C-w>j")
+keymap.set("n", "<C-k>", "<C-w>k")
+keymap.set("n", "<C-l>", "<C-w>l")
 
 -- Tabs
-keymap.set('n', '<leader>to', ':tabnew<CR>')
-keymap.set('n', '<leader>tx', ':tabclose<CR>')
-keymap.set('n', '<leader>tn', ':tabn<CR>')
-keymap.set('n', '<leader>tp', ':tabp<CR>')
+keymap.set("n", "<leader>to", ":tabnew<CR>")
+keymap.set("n", "<leader>tx", ":tabclose<CR>")
+keymap.set("n", "<leader>tn", ":tabn<CR>")
+keymap.set("n", "<leader>tp", ":tabp<CR>")
 
-
+-- Diagnostic keymaps
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
+vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
 -- delete one word in insert mode (note that <C-h> sends the same ASCII escape sequence as <C-BS>)
 --keymap.set('i', '<C-h>', '<C-w>', opts)
 
 -- remap ^ and $ to H and L, respectively
-keymap.set('n', 'H', '^')
-keymap.set('n', 'L', '$')
+keymap.set("n", "H", "^")
+keymap.set("n", "L", "$")
 
 -- open up lazy.nvim UI
-keymap.set('n', '<leader>l', ':Lazy<CR>')
+keymap.set("n", "<leader>l", ":Lazy<CR>")
 
 -- toggle undotree
 --keymap.set('n', '<C-u>', ':UndotreeToggle<CR>', opts)
-
--- toggle nvim-tree
---keymap.set('n', '<C-n>', ':NvimTreeFindFileToggle<CR>', opts)
 
 -- unbind <C-d> for now
 --keymap.set('n', '<C-d>', '<nop>', opts)
@@ -55,8 +77,8 @@ keymap.set('n', '<leader>l', ':Lazy<CR>')
 --keymap.set('n', '<C-x>', ':bd<CR>', opts)
 
 -- quickly switch between buffers
-keymap.set('n', '<', ':bp<CR>')
-keymap.set('n', '>', ':bn<CR>')
+keymap.set("n", "<", ":bp<CR>")
+keymap.set("n", ">", ":bn<CR>")
 
 -- quickly switch between windows
 --keymap.set('n', '<C-h>', '<C-w>h', opts)
