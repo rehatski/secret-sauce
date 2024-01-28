@@ -1,13 +1,13 @@
-local global = vim.g
-local keymap = vim.keymap
-
--- Modes
+-- Mode Reference
 --   normal_mode = "n",
 --   insert_mode = "i",
 --   visual_mode = "v",
 --   visual_block_mode = "x",
 --   term_mode = "t",
 --   command_mode = "c",
+
+local global = vim.g
+local keymap = vim.keymap
 
 global.mapleader = " "
 global.maplocalleader = " "
