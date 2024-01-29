@@ -1,4 +1,4 @@
--- Mode Reference
+-- Mode Referenceke
 --   normal_mode = "n",
 --   insert_mode = "i",
 --   visual_mode = "v",
@@ -57,6 +57,10 @@ vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnos
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
+---- move lines around
+keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
 -- delete one word in insert mode (note that <C-h> sends the same ASCII escape sequence as <C-BS>)
 --keymap.set('i', '<C-h>', '<C-w>', opts)
 
@@ -77,8 +81,8 @@ keymap.set("n", "<leader>l", ":Lazy<CR>")
 --keymap.set('n', '<C-x>', ':bd<CR>', opts)
 
 -- quickly switch between buffers
-keymap.set("n", "<", ":bp<CR>")
-keymap.set("n", ">", ":bn<CR>")
+-- keymap.set("n", "<", ":bp<CR>")
+-- keymap.set("n", ">", ":bn<CR>")
 
 -- quickly switch between windows
 --keymap.set('n', '<C-h>', '<C-w>h', opts)
@@ -95,12 +99,6 @@ keymap.set("n", ">", ":bn<CR>")
 
 -- clear search term when centering the cursor
 --keymap.set('n', 'zz', 'zz:noh<CR>', opts)
-
--- toggle transparency
---keymap.set('n', '<C-t>', ':TransparentToggle<CR>', opts)
-
--- open up Themery
---keymap.set('n', '<leader>t', ':Themery<CR>', opts)
 
 -- replace current word
 --keymap.set('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
@@ -154,9 +152,6 @@ keymap.set("n", ">", ":bn<CR>")
 ---- the greatest remap ever (Primeagen)
 --keymap.set('v', '<leader>p', '"_dP', opts)
 --
----- move lines around
-keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 --
 ---- vertical movement keeps cursor in middle (visual mode)
 --keymap.set('v', '<C-j>', '<C-d>zz', opts)
