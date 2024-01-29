@@ -155,8 +155,8 @@ keymap.set("n", ">", ":bn<CR>")
 --keymap.set('v', '<leader>p', '"_dP', opts)
 --
 ---- move lines around
---keymap.set('v', 'J', ":m '>+1<CR>gv=gv", opts)
---keymap.set('v', 'K', ":m '<-2<CR>gv=gv", opts)
+keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 --
 ---- vertical movement keeps cursor in middle (visual mode)
 --keymap.set('v', '<C-j>', '<C-d>zz', opts)

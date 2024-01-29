@@ -17,6 +17,7 @@ return {
 			vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "live grep" })
 			vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "buffers" })
 			vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "help tags" })
+			vim.keymap.set("n", "<leader>fr", builtin.resume, { desc = "resume previous" })
 			vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "diagnostics" })
 			require("telescope").load_extension("fzf")
 		end,
