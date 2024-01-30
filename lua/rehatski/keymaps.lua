@@ -33,23 +33,29 @@ keymap.set("n", "x", '"_x')
 keymap.set("n", "<leader>nh", ":nohl<CR>")
 
 -- Splits
-keymap.set("n", "<leader>sv", "<C-w>v")
-keymap.set("n", "<leader>sh", "<C-w>s")
-keymap.set("n", "<leader>se", "<C-w>=")
-keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>")
-keymap.set("n", "<leader>sx", ":close<CR>")
+keymap.set("n", "<leader>sv", "<C-w>v", { desc = "spit vertically" })
+keymap.set("n", "<leader>sh", "<C-w>s", { desc = "split horizontally" })
+keymap.set("n", "<leader>se", "<C-w>=", { desc = "equalized splits" })
+keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>", { desc = "maximize current split" })
+keymap.set("n", "<leader>sx", ":close<CR>", { desc = "close split" })
+
+-- Resizing Buffer Splits
+keymap.set("n", "<A-up>", ":resize -2<cr>", { desc = "resize up" })
+keymap.set("n", "<A-down>", ":resize +2<cr>", { desc = "resize down" })
+keymap.set("n", "<A-left>", ":vertical resize -2<cr>", { desc = "resize left" })
+keymap.set("n", "<A-Right>", ":vertical resize +2<CR>", { desc = "resize right" })
 
 -- Nav Panes
-keymap.set("n", "<C-h>", "<C-w>h")
-keymap.set("n", "<C-j>", "<C-w>j")
-keymap.set("n", "<C-k>", "<C-w>k")
-keymap.set("n", "<C-l>", "<C-w>l")
+keymap.set("n", "<C-h>", "<C-w>h", { desc = "pane to the right" })
+keymap.set("n", "<C-j>", "<C-w>j", { desc = "pane below" })
+keymap.set("n", "<C-k>", "<C-w>k", { desc = "pane above" })
+keymap.set("n", "<C-l>", "<C-w>l", { desc = "pane to the left" })
 
 -- Tabs
-keymap.set("n", "<leader>to", ":tabnew<CR>")
-keymap.set("n", "<leader>tx", ":tabclose<CR>")
-keymap.set("n", "<leader>tn", ":tabn<CR>")
-keymap.set("n", "<leader>tp", ":tabp<CR>")
+keymap.set("n", "<leader>to", ":tabnew<CR>", { desc = "new tab" })
+keymap.set("n", "<leader>tx", ":tabclose<CR>", { desc = "close tab" })
+keymap.set("n", "<leader>tn", ":tabn<CR>", { desc = "next tab" })
+keymap.set("n", "<leader>tp", ":tabp<CR>", { desc = "previous tab" })
 
 -- Diagnostic keymaps
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
@@ -58,8 +64,8 @@ vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, { desc = "Open float
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
 ---- move lines around
-keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "move lines down" })
+keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "move lines up" })
 
 -- delete one word in insert mode (note that <C-h> sends the same ASCII escape sequence as <C-BS>)
 --keymap.set('i', '<C-h>', '<C-w>', opts)
@@ -83,10 +89,6 @@ keymap.set("n", "<leader>l", ":Lazy<CR>")
 -- quickly switch between buffers
 -- keymap.set("n", "<", ":bp<CR>")
 -- keymap.set("n", ">", ":bn<CR>")
-
--- quickly switch between windows
---keymap.set('n', '<C-h>', '<C-w>h', opts)
---keymap.set('n', '<C-l>', '<C-w>l', opts)
 
 -- write to all buffers
 --keymap.set('n', '<leader>w', ':wa<CR>', opts)
@@ -130,11 +132,6 @@ keymap.set("n", "<leader>l", ":Lazy<CR>")
 -- creates a new line above the cursor and goes back into normal mode
 --keymap.set('n', '<A-CR>', 'O<Esc>', opts)
 
--- quick resizing of buffers
---keymap.set('n', '<C-up>', ':resize -2<cr>', opts)
---keymap.set('n', '<C-down>', ':resize +2<cr>', opts)
---keymap.set('n', '<C-left>', ':vertical resize -2<cr>', opts)
---keymap.set('n', '<C-Right>', ':vertical resize +2<CR>', opts)
 --
 ---- copy into system clipboard with CTRL + C
 --keymap.set('v', '<C-c>', '"+y', opts)

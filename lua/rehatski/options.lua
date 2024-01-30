@@ -1,16 +1,21 @@
 local set = vim.opt
 
-
-set.signcolumn = 'yes'
+set.signcolumn = "yes"
 set.number = true
 set.relativenumber = true
 set.spell = true
 set.wrap = false
 set.termguicolors = true
 
-set.clipboard = 'unnamedplus'
+set.clipboard = "unnamedplus"
 
---set.hlsearch = false
+set.hlsearch = false
+set.ignorecase = true
+set.smartcase = true
+set.smartindent = true
+set.softtabstop = 4
+set.tabstop = 4
+set.shiftwidth = 4
 --set.backspace = '2'
 --set.showcmd = true
 --set.laststatus = 2
@@ -18,13 +23,7 @@ set.clipboard = 'unnamedplus'
 --set.autoread = true
 --set.cursorline = true
 --set.cursorlineopt = 'number'
-set.ignorecase = true
-set.smartcase = true
 --set.autoindent = true
-set.smartindent = true
-set.softtabstop = 4
-set.tabstop = 4
-set.shiftwidth = 4
 --set.expandtab = true
 --set.shiftround = true
 --set.mousemoveevent = true
@@ -32,7 +31,7 @@ set.shiftwidth = 4
 --set.backup = false
 ----set.undodir = os.getenv("HOME") .. "/.vim/undodir"
 --set.undofile = true
---set.hlsearch = false
+
 --set.incsearch = true
 --set.scrolloff = 8
 --set.updatetime = 100
