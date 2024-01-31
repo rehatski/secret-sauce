@@ -13,7 +13,7 @@ global.mapleader = " "
 global.maplocalleader = " "
 
 -- Copy Pasta from https://github.com/ehllie/dotfiles/blob/7d8d42b8f74b3d65fa986353050859e7cc6c0fa7/neovim/nvim/lua/keymaps.lua#L33-L40
--- TODO: Figure out how this is done
+-- TODO: Figure out how this is done, mainly used for vim.lsp.buf.hover
 local function close_floating()
 	for _, win in ipairs(vim.api.nvim_list_wins()) do
 		local config = vim.api.nvim_win_get_config(win)
@@ -24,13 +24,13 @@ local function close_floating()
 end
 
 keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
-keymap.set("i", "jj", "<ESC>")
+keymap.set("i", "jj", "<ESC>", { desc = "my prefered esc alternative" })
 keymap.set("n", "<leader>jj", function()
 	close_floating()
 end)
 
-keymap.set("n", "x", '"_x')
-keymap.set("n", "<leader>nh", ":nohl<CR>")
+keymap.set("n", "x", '"_x', { desc = "prevents x from copying over Vim clipboard" })
+keymap.set("v", "<leader>p", '"_dP', { desc = "delete and paste" })
 
 -- Splits
 keymap.set("n", "<leader>sv", "<C-w>v", { desc = "spit vertically" })
@@ -139,15 +139,12 @@ keymap.set("n", "<leader>l", ":Lazy<CR>")
 ---- copy into host system clipboard with <leader>y
 --keymap.set('v', '<leader>y', '"*y', opts)
 --
----- prevent x from copying over Vim clipboard
---keymap.set('n', 'x', '"_x', opts)
 --
 ---- indent and outdent lines in visual mode
 --keymap.set('v', '<TAB>', '<S->>gv', opts)
 --keymap.set('v', '<S-TAB>', '<S-<>gv', opts)
 --
----- the greatest remap ever (Primeagen)
---keymap.set('v', '<leader>p', '"_dP', opts)
+----
 --
 --
 ---- vertical movement keeps cursor in middle (visual mode)
