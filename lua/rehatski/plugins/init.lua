@@ -23,35 +23,6 @@ return {
 		opts = {},
 	},
 	{ "tpope/vim-surround" },
-	-- {
-	-- 	"nvimdev/dashboard-nvim",
-	-- 	event = "VimEnter",
-	-- 	config = function()
-	-- 		local logo = [[
-	--    █████╗  ██████╗  ██████╗  ██████╗  ██╗███████╗███████╗███████╗
-	--   ██╔══██╗██╔════╝ ██╔═████╗██╔═████╗███║██╔════╝██╔════╝╚════██║
-	--   ███████║███████╗ ██║██╔██║██║██╔██║╚██║███████╗███████╗    ██╔╝
-	--   ██╔══██║██╔═══██╗████╔╝██║████╔╝██║ ██║╚════██║╚════██║   ██╔╝
-	--   ██║  ██║╚██████╔╝╚██████╔╝╚██████╔╝ ██║███████║███████║   ██║
-	--   ╚═╝  ╚═╝ ╚═════╝  ╚═════╝  ╚═════╝  ╚═╝╚══════╝╚══════╝   ╚═╝
-	-- 	      ]]
-	--
-	-- 		logo = string.rep("\n", 8) .. logo .. "\n\n"
-	-- 		require("dashboard").setup({
-	-- 			shortcut_type = "number",
-	-- 			hide = {
-	-- 				winbar = true,
-	-- 				statusline = true,
-	-- 				tabline = true,
-	-- 			},
-	-- 			footer = {},
-	-- 			center = {},
-	-- 			config = {
-	-- 				header = vim.split(logo, "\n"),
-	-- 			},
-	-- 		})
-	-- 	end,
-	-- },
 	-- "tpope/vim-rhubarb",
 	-- "tpope/vim-sleuth",
 
