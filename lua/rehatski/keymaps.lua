@@ -76,31 +76,16 @@ keymap.set("n", "L", "$")
 
 -- open up lazy.nvim UI
 keymap.set("n", "<leader>l", ":Lazy<CR>")
-
--- toggle undotree
---keymap.set('n', '<C-u>', ':UndotreeToggle<CR>', opts)
-
--- unbind <C-d> for now
---keymap.set('n', '<C-d>', '<nop>', opts)
-
+keymap.set("n", "<leader>b", vim.lsp.buf.format)
 -- close the current buffer
 --keymap.set('n', '<C-x>', ':bd<CR>', opts)
 
--- quickly switch between buffers
+-- quickly switch between buffers (remap this to something else)
 -- keymap.set("n", "<", ":bp<CR>")
 -- keymap.set("n", ">", ":bn<CR>")
 
--- write to all buffers
---keymap.set('n', '<leader>w', ':wa<CR>', opts)
-
--- quit all buffers
---keymap.set('n', '<leader>q', ':qa<CR>', opts)
-
 -- force quit all buffers
 --keymap.set('n', '<leader>fq', ':qa!<CR>', opts)
-
--- clear search term when centering the cursor
---keymap.set('n', 'zz', 'zz:noh<CR>', opts)
 
 -- replace current word
 --keymap.set('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
@@ -110,9 +95,6 @@ keymap.set("n", "<leader>l", ":Lazy<CR>")
 
 -- keep cursor at front when appending lines below
 --keymap.set('n', 'J', 'mzJ`z', opts)
-
--- select entire file with CTRL + A
---keymap.set('n', '<C-a>', 'ggVG', opts)
 
 -- indent and outdent lines quickly
 --keymap.set('n', '<TAB>', '>>', opts)
