@@ -22,10 +22,24 @@ return {
 		dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
 		opts = {},
 	},
+	{
+		"mbbill/undotree",
+		lazy = true,
+		cmd = "UndotreeToggle",
+		config = function()
+			vim.keymap.set("n", "<leader>uu", "<cmd>UndotreeToggle<CR>")
+		end,
+	},
 	{ "tpope/vim-surround" },
-	-- "tpope/vim-rhubarb",
-	-- "tpope/vim-sleuth",
-
-	-- not a fan of this blankline
-	--{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }
+	{
+		"gelguy/wilder.nvim",
+		config = function()
+			require("wilder").setup({ modes = { ":", "/", "?" } })
+		end,
+	},
 }
+-- "tpope/vim-rhubarb",
+-- "tpope/vim-sleuth",
+
+-- not a fan of this blankline
+--{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }

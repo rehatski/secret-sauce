@@ -5,6 +5,7 @@ return {
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+			"nvim-telescope/telescope-frecency.nvim",
 		},
 		config = function()
 			require("telescope").setup({
@@ -19,6 +20,7 @@ return {
 			vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "help tags" })
 			vim.keymap.set("n", "<leader>fr", builtin.resume, { desc = "resume previous" })
 			vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "diagnostics" })
+			vim.keymap.set("n", "<leader><leader>", "<Cmd>Telescope frecency<CR>", { desc = "frecency" })
 			require("telescope").load_extension("fzf")
 		end,
 	},
@@ -41,6 +43,7 @@ return {
 				},
 			})
 			require("telescope").load_extension("ui-select")
+			require("telescope").load_extension("frecency")
 		end,
 	},
 }

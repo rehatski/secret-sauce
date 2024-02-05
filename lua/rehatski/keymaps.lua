@@ -33,7 +33,7 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "page down with centering" })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "page up with centering" })
 vim.keymap.set("n", "n", "nzzzv", { desc = "next with centering" })
 vim.keymap.set("n", "N", "Nzzzv", { desc = "previous with centering" })
-
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 -- Splits
 vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "spit vertically" })
 vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "split horizontally" })
