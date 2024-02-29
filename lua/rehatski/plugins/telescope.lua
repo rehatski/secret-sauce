@@ -30,8 +30,9 @@ return {
 			require("telescope").setup({
 				defaults = {
 					file_ignore_pattern = {
-						"^ios",
-						"^android",
+						"^node_modules/",
+						"^ios/",
+						"^android/",
 					},
 				},
 				extensions = {
