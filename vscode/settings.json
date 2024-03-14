@@ -1,0 +1,149 @@
+{
+  "vim.useSystemClipboard": true,
+  "vim.leader": "<space>",
+  "vim.hlsearch": false,
+  "vim.ignorecase": true,
+  "vim.smartcase": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.visualModeKeyBindings": [
+    {
+      "before": ["<leader>", "P"],
+      "after": ["\"", "_", "d", "P"]
+    },
+    // Move visual selected lines up or down
+    {
+      "before": ["K"],
+      "commands": ["editor.action.moveLinesUpAction"]
+    },
+    {
+      "before": ["J"],
+      "commands": ["editor.action.moveLinesDownAction"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["H"],
+      "after": ["^"]
+    },
+    {
+      "before": ["L"],
+      "after": ["$"]
+    },
+    // send x deletes tot eh blackhole register
+    {
+      "before": ["x"],
+      "after": ["\"", "_", "x"]
+    },
+    // centers cursort when paging up and down the file
+    {
+      "before": ["<C-d>"],
+      "after": ["<C-d>", "zz"]
+    },
+    {
+      "before": ["<C-u>"],
+      "after": ["<C-u>", "zz"]
+    },
+    // centers cursor when moveing between search
+    {
+      "before": ["n"],
+      "after": ["n", "z", "z", "z", "v"]
+    },
+    {
+      "before": ["N"],
+      "after": ["N", "z", "z", "z", "v"]
+    },
+    // delete and pase whole word without visual selection
+    {
+      "before": ["<leader>", "p"],
+      "after": ["v", "e", "\"", "_", "d", "P"]
+    },
+    {
+      "before": ["J"],
+      "after": ["m", "z", "J", "`", "z"]
+    },
+    // vertical split
+    {
+      "before": ["<leader>", "s", "v"],
+      "commands": ["workbench.action.splitEditor"]
+    },
+    // horizontal split
+    {
+      "before": ["<leader>", "s", "h"],
+      "commands": ["workbench.action.splitEditorDown"]
+    },
+    // close split
+    {
+      "before": ["<leader>", "s", "x"],
+      "commands": ["workbench.action.closeWindow"]
+    },
+    // move between splits with ctrl hjkl
+    {
+      "before": ["<C-l>"],
+      "after": ["<C-w>", "l"]
+    },
+    {
+      "before": ["<C-h>"],
+      "after": ["<C-w>", "h"]
+    },
+    {
+      "before": ["<C-j> "],
+      "after": ["<C-w>", "j"]
+    },
+    {
+      "before": ["<C-k>"],
+      "after": ["<C-w>", "k"]
+    },
+    // command
+    {
+      "before": [":"],
+      "commands": ["workbench.action.showCommands"],
+      "silent": true
+    },
+    {
+      "before": ["<CR>"],
+      "after": ["o", "<Esc>"]
+    }
+  ],
+  "files.autoSave": "afterDelay",
+  "editor.lineNumbers": "relative",
+  "editor.minimap.enabled": false,
+  "editor.codeLens": false,
+  "editor.detectIndentation": false,
+  "editor.fontFamily": "PragmataPro",
+  "editor.formatOnSave": true,
+  "editor.accessibilitySupport": "off",
+  "editor.tabSize": 2,
+  "editor.fontSize": 14,
+  "terminal.integrated.fontFamily": "PragmataPro",
+  "terminal.integrated.fontSize": 12,
+  "breadcrumbs.enabled": true,
+  "workbench.colorTheme": "Gruvbox Dark Hard",
+  "workbench.activityBar.location": "hidden",
+  "workbench.startupEditor": "newUntitledFile",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit",
+    "source.fixAll.tslint": "explicit"
+  },
+  "prettier.semi": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "explorer.confirmDragAndDrop": false,
+  "security.workspace.trust.untrustedFiles": "open"
+}
