@@ -1,7 +1,6 @@
 #!/bin/bash
 
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-echo ${BASEDIR}
 vscodeFolderPath="Library/Application Support/Code/User"
 userPath=~
 
@@ -42,4 +41,17 @@ if [ -f "$userPath/$vscodeFolderPath/$keybindingsJSON" ]; then
 	echo "Moved original keybindings.json to keybindings_bk.json"
 fi
 
-ln -s ${BASEDIR}/vscode/"$keybindings.json" ~/"${vscodeFolderPath}/$keybindingsJSON"
+ln -s ${BASEDIR}/vscode/"$keybindingsJSON" ~/"${vscodeFolderPath}/$keybindingsJSON"
+
+echo "Linking TMUX config"
+tmuxConfFile=".tmux.conf"
+backupTmuxConfFile=".tmux_bk.conf"
+
+#backing up existing tmux.conf file
+if [ -f "$userPath/$tmuxConfFile" ]; then
+	mv "$userPath/$tmuxConfFile" "$userPath/$backupTmuxConfFile"
+	echo "Moved original tmux.conf to $backupTmuxConfFile"
+fi
+
+ln -s ${BASEDIR}/tmux.conf ~/"$tmuxConfFile"
+
