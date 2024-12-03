@@ -122,8 +122,7 @@
   "terminal.integrated.fontFamily": "PragmataPro",
   "terminal.integrated.fontSize": 12,
   "breadcrumbs.enabled": true,
-  "workbench.colorTheme": "Gruvbox Dark Hard",
-  "workbench.activityBar.location": "hidden",
+  "workbench.colorTheme": "Tokyo Night",
   "workbench.startupEditor": "newUntitledFile",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "[jsonc]": {
@@ -145,5 +144,9 @@
   "prettier.semi": false,
   "javascript.updateImportsOnFileMove.enabled": "always",
   "explorer.confirmDragAndDrop": false,
-  "security.workspace.trust.untrustedFiles": "open"
+  "security.workspace.trust.untrustedFiles": "open",
+  "extensions.ignoreRecommendations": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
