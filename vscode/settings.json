@@ -4,12 +4,6 @@
   "vim.hlsearch": false,
   "vim.ignorecase": true,
   "vim.smartcase": true,
-  "vim.insertModeKeyBindings": [
-    {
-      "before": ["j", "j"],
-      "after": ["<Esc>"]
-    }
-  ],
   "vim.visualModeKeyBindings": [
     {
       "before": ["<leader>", "P"],
