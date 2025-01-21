@@ -11,11 +11,13 @@
     },
     // Move visual selected lines up or down
     {
-      "before": ["K"],
+      // "before": ["K"],
+      "before": ["<C-k>"],
       "commands": ["editor.action.moveLinesUpAction"]
     },
     {
-      "before": ["J"],
+      // "before": ["J"],
+      "before": ["<C-j>"],
       "commands": ["editor.action.moveLinesDownAction"]
     }
   ],
@@ -142,5 +144,8 @@
   "extensions.ignoreRecommendations": true,
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "editor.autoClosingBrackets": "never",
+  "editor.autoClosingQuotes": "never",
+  "vsicons.dontShowNewVersionMessage": true
 }
