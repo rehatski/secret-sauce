@@ -27,7 +27,33 @@ else
     print_message "Homebrew is already installed!"
 fi
 
-# 3. Install Git and GitHub CLI
+# 3. Add Homebrew to PATH
+print_message "Adding Homebrew to PATH for future terminal sessions..."
+if [ -n "$(brew --prefix)" ]; then
+    HOMEBREW_PATH="$(brew --prefix)/bin"
+
+    # Determine shell configuration file
+    SHELL_CONFIG_FILE=""
+    case "$SHELL" in
+        */zsh) SHELL_CONFIG_FILE="$HOME/.zshrc" ;;
+        */bash) SHELL_CONFIG_FILE="$HOME/.bash_profile" ;;
+    esac
+
+    if [ -n "$SHELL_CONFIG_FILE" ]; then
+        if ! grep -q "$HOMEBREW_PATH" "$SHELL_CONFIG_FILE"; then
+            echo "export PATH=\"$HOMEBREW_PATH:\$PATH\"" >> "$SHELL_CONFIG_FILE"
+            print_message "Added Homebrew to PATH in $SHELL_CONFIG_FILE"
+        else
+            print_message "Homebrew is already in your PATH in $SHELL_CONFIG_FILE"
+        fi
+    fi
+fi
+
+# Reload the shell configuration for the current session
+print_message "Reloading shell configuration for the current session..."
+eval "$(/opt/homebrew/bin/brew shellenv 2>/dev/null || /usr/local/bin/brew shellenv)"
+
+# 4. Install Git and GitHub CLI
 print_message "Installing Git and GitHub CLI..."
 brew install git gh
 
