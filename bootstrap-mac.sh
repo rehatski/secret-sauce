@@ -55,7 +55,7 @@ fi
 # 6. Run the Setup Script
 print_message "Running setup script..."
 cd "$REPO_DIR"
-# bash setup-mac.sh
+bash full-setup.sh
 
 print_message "Bootstrap completed! Your Mac is now set up."
 
