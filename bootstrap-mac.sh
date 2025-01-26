@@ -48,9 +48,7 @@ print_message "Cloning secret-sauce repo..."
 if [ -d "$REPO_DIR" ]; then
     print_message "Repo already cloned at $REPO_DIR/secret-sauce. Skipping clone."
 else
-    mkdir "$REPO_DIR"
-    cd "$REPO_DIR"
-    git clone "$REPO_URL"
+    git clone "$REPO_URL" "$REPO_DIR"
 fi
 
 # 6. Run the full setup script
