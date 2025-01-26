@@ -32,13 +32,13 @@ fi
 
 # 3. Install Git and GitHub CLI
 print_message "Installing Git and GitHub CLI..."
-brew install git gh
+brew install git # gh
 
 # 4. Authenticate GitHub CLI 
-print_message "Authenticating GitHub CLI..."
-if ! gh auth status &>/dev/null; then
-    gh auth login
-fi
+# print_message "Authenticating GitHub CLI..."
+# if ! gh auth status &>/dev/null; then
+#     gh auth login
+# fi
 
 # 5. Clone secret-sauce repo
 REPO_URL="https://github.com/rehatski/secret-sauce.git"

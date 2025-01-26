@@ -7,6 +7,10 @@ nvimBackupPath="$HOME/.config/nvim_bk"
 tmuxConfFile="$HOME/.tmux.conf"
 tmuxBackupFile="$HOME/.tmux_bk.conf"
 
+OH_MY_ZSH_RC="$HOME/.zshrc"
+CUSTOM_ZSH_RC="$BASEDIR/zshrc"  # Path to your custom .zshrc
+BACKUP_ZSH_RC="$HOME/.zshrc_oh_my_zsh_backup"
+
 # Function to back up files if they are not symlinks
 backup_file() {
   local target="$1"
@@ -43,3 +47,18 @@ echo "Linking TMUX config"
 backup_file "$tmuxConfFile" "$tmuxBackupFile"
 create_symlink "$BASEDIR/tmux.conf" "$tmuxConfFile"
 
+
+echo "Merging custom zshrc with home zshrc"
+if [ -f "$OH_MY_ZSH_RC" ]; then
+    echo "Backing up Oh My Zsh .zshrc to $BACKUP_ZSH_RC..."
+    cp "$OH_MY_ZSH_RC" "$BACKUP_ZSH_RC"
+fi
+if [ -f "$CUSTOM_ZSH_RC" ]; then
+    echo "Merging custom .zshrc into Oh My Zsh .zshrc..."
+    cat "$CUSTOM_ZSH_RC" >> "$OH_MY_ZSH_RC"
+else
+    echo "Custom .zshrc not found at $CUSTOM_ZSH_RC. Skipping merge."
+fi
+
+echo "Reloading .zshrc..."
+source "$OH_MY_ZSH_RC"
