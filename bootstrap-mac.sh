@@ -3,7 +3,6 @@
 # Stop script if any command fails
 set -e
 
-# Function to print messages
 print_message() {
     echo -e "\n\033[1;32m$1\033[0m\n"
 }
@@ -35,27 +34,30 @@ fi
 print_message "Installing Git and GitHub CLI..."
 brew install git gh
 
-# 4. Authenticate GitHub CLI (optional, but recommended)
+# 4. Authenticate GitHub CLI 
 print_message "Authenticating GitHub CLI..."
 if ! gh auth status &>/dev/null; then
     gh auth login
 fi
 
-# 5. Clone the Setup Repository
-REPO_URL="https://github.com/rehatski/secret-sauce.git"  # Replace with your repo URL
-REPO_DIR="$HOME/repos"
+# 5. Clone secret-sauce repo
+REPO_URL="https://github.com/rehatski/secret-sauce.git"
+REPO_DIR="$HOME/repos/secret-sauce"
 
-print_message "Cloning setup repository..."
+print_message "Cloning secret-sauce repo..."
 if [ -d "$REPO_DIR" ]; then
-    print_message "Repository already exists at $REPO_DIR. Skipping clone."
+    print_message "Repo already cloned at $REPO_DIR/secret-sauce. Skipping clone."
 else
-    git clone "$REPO_URL" "$REPO_DIR"
+    mkdir "$REPO_DIR"
+    cd "$REPO_DIR"
+    git clone "$REPO_URL"
 fi
 
-# 6. Run the Setup Script
-print_message "Running setup script..."
+# 6. Run the full setup script
+# TODO: maybe create an interactive shell app
+print_message "Running full-setup script..."
 cd "$REPO_DIR"
 bash full-setup.sh
 
-print_message "Bootstrap completed! Your Mac is now set up."
+print_message "Bootstrap completed!"
 

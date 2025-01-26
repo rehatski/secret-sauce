@@ -11,4 +11,7 @@ fi
 # Installing brew packages
 brew bundle --file=Brewfile
 
+# Installing tpm plugin manager for tmux
+git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+
 bash link-config-files.sh

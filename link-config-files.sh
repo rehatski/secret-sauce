@@ -4,7 +4,7 @@ BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 vscodeFolderPath="$HOME/Library/Application Support/Code/User"
 nvimFolderPath="$HOME/.config/nvim"
 nvimBackupPath="$HOME/.config/nvim_bk"
-tmuxCongFile="$HOME/.tmux.conf"
+tmuxConfFile="$HOME/.tmux.conf"
 tmuxBackupFile="$HOME/.tmux_bk.conf"
 
 # Function to back up files if they are not symlinks

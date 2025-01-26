@@ -11,5 +11,9 @@ brew "nvm"
 brew "powerlevel10k"
 brew "ripgrep"
 brew "tmux"
+
 cask "iTerm2"
+cask "obsidian"
+
+cask "vlc"
 
