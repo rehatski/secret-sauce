@@ -28,6 +28,15 @@ create_symlink() {
 
 echo "Linking your sauce dot files"
 
+# Check if the .config folder exists
+if [ ! -d "$HOME/.config" ]; then
+    echo "Config folder does not exist. Creating it..."
+    mkdir -p "$HOME/.config"
+else
+    echo "Directory already exists."
+fi
+
+
 echo "Linking NVIM config"
 backup_file "$nvimFolderPath" "$nvimBackupPath"
 create_symlink "$BASEDIR/nvim" "$nvimFolderPath"
