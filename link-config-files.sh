@@ -59,7 +59,7 @@ OH_MY_ZSH_RC="$HOME/.zshrc"
 
 create_symlink "$BASEDIR/$CUSTOM_ZSH" "$HOME/.$CUSTOM_ZSH"
 # Link custom config if not already sourced
-if ! grep -q "source $HOME/.$CUSTOM_ZSH\"" "$OH_MY_ZSH_RC"; then
+if ! grep -q "source \"$HOME/.$CUSTOM_ZSH\"" "$OH_MY_ZSH_RC"; then
     echo "Linking custom Zsh configuration in .zshrc..."
     echo -e "\nif [ -f \"$HOME/.$CUSTOM_ZSH\" ]; then\n    source \"$HOME/.$CUSTOM_ZSH\"\nfi" >> "$OH_MY_ZSH_RC"
 else
