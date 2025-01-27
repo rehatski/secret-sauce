@@ -53,7 +53,6 @@ backup_file "$tmuxConfFile" "$tmuxBackupFile"
 create_symlink "$BASEDIR/tmux.conf" "$tmuxConfFile"
 
 
-OH_MY_ZSH_RC="$HOME/.zshrc"
 BACKUP_ZSH_RC="$HOME/.zshrc_oh_my_zsh_backup"
 CUSTOM_ZSH="zsh_custom"
 OH_MY_ZSH_RC="$HOME/.zshrc"
@@ -76,7 +75,7 @@ export NVM_SYMLINK_CURRENT=true
 '
 
 # Check if the NVM configuration is already in .zshrc
-if ! grep -q "export NVM_SYMLINK_CURRENT=true" "$ZSHRC"; then
+if ! grep -q "export NVM_SYMLINK_CURRENT=true" "$OH_MY_ZSH_RC"; then
     echo "Adding NVM configuration to .zshrc..."
     echo "$NVM_CONFIG" >> "$OH_MY_ZSH_RC"
 else
