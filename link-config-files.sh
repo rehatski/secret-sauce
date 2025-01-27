@@ -67,7 +67,7 @@ export NVM_SYMLINK_CURRENT=true
 '
 
 # Check if the NVM configuration is already in .zshrc
-if ! grep -q 'export NVM_DIR="\$HOME/.nvm"' "$ZSHRC"; then
+if ! grep -q "export NVM_DIR=" "$ZSHRC"; then
     echo "Adding NVM configuration to .zshrc..."
     echo "$NVM_CONFIG" >> "$OH_MY_ZSH_RC"
 else

@@ -13,6 +13,8 @@ brew "tmux"
 
 cask "iTerm2"
 cask "obsidian"
+cask "visual-studio-code"
+cask "google-chrome"
 
 cask "vlc"
 

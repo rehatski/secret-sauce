@@ -2,6 +2,17 @@
 ZSHRC="$HOME/.zshrc"
 OH_MY_ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
 
+# Install Meslo Nerd Font
+brew install font-hack-nerd-font
+brew install --cask font-meslo-lg-nerd-font
+
+
+# Installing brew packages
+brew bundle --file=Brewfile
+
+# Installing tpm plugin manager for tmux
+git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
+
 # Install Oh My Zsh if not already installed
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
     echo "Installing Oh My Zsh..."
@@ -13,28 +24,24 @@ else
     echo "Oh My Zsh is already installed!"
 fi
 
-
-
 # Set Powerlevel10k as the default theme 
 sed -i '' 's/^ZSH_THEME=.*/ZSH_THEME="powerlevel10k\/powerlevel10k"/' ~/.zshrc
 
-# Install Meslo Nerd Font
-brew tap homebrew/cask-fonts
-brew install font-hack-nerd-font
-brew install --cask font-meslo-lg-nerd-font
+# Clone zsh-autosuggestions if not already installed
+if [ ! -d "$OH_MY_ZSH_CUSTOM/plugins/zsh-autosuggestions" ]; then
+    echo "Cloning zsh-autosuggestions..."
+    git clone https://github.com/zsh-users/zsh-autosuggestions "$OH_MY_ZSH_CUSTOM/plugins/zsh-autosuggestions"
+else
+    echo "zsh-autosuggestions is already installed. Skipping clone."
+fi
 
-
-# Installing brew packages
-brew bundle --file=Brewfile
-
-# Installing tpm plugin manager for tmux
-git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
-
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-sed -i '' 's/^plugins=(\(.*\))/plugins=(\1 zsh-autosuggestions)/' "$ZSHRC" 
-
-
-
+# Add zsh-autosuggestions to plugins in .zshrc if not already present
+if ! grep -q "zsh-autosuggestions" "$ZSHRC"; then
+    echo "Adding zsh-autosuggestions to plugins in .zshrc..."
+    sed -i '' 's/^plugins=(\(.*\))/plugins=(\1 zsh-autosuggestions)/' "$ZSHRC"
+else
+    echo "zsh-autosuggestions is already in the plugins list. Skipping."
+fi
 
 # Clone zsh-syntax-highlighting if not already installed
 if [ ! -d "$OH_MY_ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ]; then

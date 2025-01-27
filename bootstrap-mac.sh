@@ -7,7 +7,7 @@ print_message() {
     echo -e "\n\033[1;32m$1\033[0m\n"
 }
 
-# 1. Install Xcode Command Line Tools
+# Install Xcode Command Line Tools
 print_message "Installing Xcode Command Line Tools..."
 if ! xcode-select -p &>/dev/null; then
     xcode-select --install
@@ -15,7 +15,7 @@ if ! xcode-select -p &>/dev/null; then
     exit 1
 fi
 
-# 2. Install Homebrew
+# Install Homebrew
 print_message "Installing Homebrew..."
 if ! command -v brew &>/dev/null; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -30,7 +30,7 @@ else
     print_message "Homebrew is already installed!"
 fi
 
-# 3. Install Git and GitHub CLI
+# Install Git and GitHub CLI
 print_message "Installing Git and GitHub CLI..."
 brew install git # gh
 
@@ -40,7 +40,7 @@ brew install git # gh
 #     gh auth login
 # fi
 
-# 5. Clone secret-sauce repo
+# Clone secret-sauce repo
 REPO_URL="https://github.com/rehatski/secret-sauce.git"
 REPO_DIR="$HOME/repos/secret-sauce"
 
@@ -51,7 +51,7 @@ else
     git clone "$REPO_URL" "$REPO_DIR"
 fi
 
-# 6. Run the full setup script
+# Run the full setup script
 # TODO: maybe create an interactive shell app
 print_message "Running full-setup script..."
 cd "$REPO_DIR"
