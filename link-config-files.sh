@@ -60,7 +60,7 @@ OH_MY_ZSH_RC="$HOME/.zshrc"
 
 create_symlink "$BASEDIR/$CUSTOM_ZSH" "$HOME/.$CUSTOM_ZSH"
 # Link custom config if not already sourced
-if ! grep -q "source \"$CUSTOM_ZSH\"" "$OH_MY_ZSH_RC"; then
+if ! grep -q "source \"$HOME/.$CUSTOM_ZSH\"" "$OH_MY_ZSH_RC"; then
     echo "Linking custom Zsh configuration in .zshrc..."
     echo -e "\nif [ -f \"$HOME/.$CUSTOM_ZSH\" ]; then\n    source \"$HOME/.$CUSTOM_ZSH\"\nfi" >> "$OH_MY_ZSH_RC"
 else
@@ -76,7 +76,7 @@ export NVM_SYMLINK_CURRENT=true
 '
 
 # Check if the NVM configuration is already in .zshrc
-if ! grep -q "export NVM_DIR=" "$ZSHRC"; then
+if ! grep -q "export NVM_DIR=\"$HOME/.nvm\"" "$ZSHRC"; then
     echo "Adding NVM configuration to .zshrc..."
     echo "$NVM_CONFIG" >> "$OH_MY_ZSH_RC"
 else
