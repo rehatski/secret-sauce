@@ -5,6 +5,7 @@ OH_MY_ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
 # Install Meslo Nerd Font
 brew install font-hack-nerd-font
 brew install --cask font-meslo-lg-nerd-font
+chsh -s $(which zsh)
 
 
 # Installing brew packages
