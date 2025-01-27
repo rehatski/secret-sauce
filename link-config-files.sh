@@ -82,7 +82,3 @@ if ! grep -q "export NVM_DIR=" "$ZSHRC"; then
 else
     echo "NVM configuration already exists in .zshrc. Skipping."
 fi
-
-
-echo "Reloading .zshrc..."
-source "$OH_MY_ZSH_RC"
