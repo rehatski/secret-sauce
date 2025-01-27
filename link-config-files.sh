@@ -41,12 +41,12 @@ echo "Linking NVIM config"
 backup_file "$nvimFolderPath" "$nvimBackupPath"
 create_symlink "$BASEDIR/nvim" "$nvimFolderPath"
 
-# echo "Linking VSCode settings"
-# backup_file "$vscodeFolderPath/settings.json" "$vscodeFolderPath/settings_bk.json"
-# create_symlink "$BASEDIR/vscode/settings.json" "$vscodeFolderPath/settings.json"
+echo "Linking VSCode settings"
+backup_file "$vscodeFolderPath/settings.json" "$vscodeFolderPath/settings_bk.json"
+create_symlink "$BASEDIR/vscode/settings.json" "$vscodeFolderPath/settings.json"
 
-# backup_file "$vscodeFolderPath/keybindings.json" "$vscodeFolderPath/keybindings_bk.json"
-# create_symlink "$BASEDIR/vscode/keybindings.json" "$vscodeFolderPath/keybindings.json"
+backup_file "$vscodeFolderPath/keybindings.json" "$vscodeFolderPath/keybindings_bk.json"
+create_symlink "$BASEDIR/vscode/keybindings.json" "$vscodeFolderPath/keybindings.json"
 
 echo "Linking TMUX config"
 backup_file "$tmuxConfFile" "$tmuxBackupFile"
@@ -76,7 +76,7 @@ export NVM_SYMLINK_CURRENT=true
 '
 
 # Check if the NVM configuration is already in .zshrc
-if ! grep -q "export NVM_DIR=\"$HOME/.nvm\"" "$ZSHRC"; then
+if ! grep -q "export NVM_SYMLINK_CURRENT=true" "$ZSHRC"; then
     echo "Adding NVM configuration to .zshrc..."
     echo "$NVM_CONFIG" >> "$OH_MY_ZSH_RC"
 else
