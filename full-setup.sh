@@ -67,6 +67,3 @@ defaults write -g com.apple.swipescrolldirection -bool false
 killall cfprefsd
 killall Dock
 killall Finder
-
-# Source the .zshrc to apply changes
-source ~/.zshrc
