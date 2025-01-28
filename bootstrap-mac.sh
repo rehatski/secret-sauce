@@ -51,11 +51,12 @@ else
     git clone "$REPO_URL" "$REPO_DIR"
 fi
 
-# Run the full setup script
+# Run the fresh mac setup script
 # TODO: maybe create an interactive shell app
-print_message "Running full-setup script..."
+print_message "Running fresh-mac-setup script..."
 cd "$REPO_DIR"
 bash fresh-mac-setup.sh
 
 print_message "Bootstrap completed!"
+
 
