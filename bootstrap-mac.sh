@@ -55,7 +55,7 @@ fi
 # TODO: maybe create an interactive shell app
 print_message "Running full-setup script..."
 cd "$REPO_DIR"
-bash full-setup.sh
+bash fresh-mac-setup.sh
 
 print_message "Bootstrap completed!"
 

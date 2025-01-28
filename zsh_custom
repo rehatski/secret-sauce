@@ -2,7 +2,6 @@
 # Aliases
 alias lg="lazygit"
 alias glt="git log --graph --oneline --decorate"
-
 alias ls='ls --color'
 
 # Keybindings

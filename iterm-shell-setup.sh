@@ -1,30 +1,21 @@
+#!/bin/bash
 
 ZSHRC="$HOME/.zshrc"
 OH_MY_ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
-
-# Install Meslo Nerd Font
-brew install font-hack-nerd-font
-brew install --cask font-meslo-lg-nerd-font
-
-# Installing brew packages
-brew bundle --file=Brewfile
-
-# Installing tpm plugin manager for tmux
-git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
 
 # Install Oh My Zsh if not already installed
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
     echo "Installing Oh My Zsh..."
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     
-    # Install Powerlevel10k theme
+    echo "Cloning Powerlevel10K"
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$OH_MY_ZSH_CUSTOM/themes/powerlevel10k"
 else
     echo "Oh My Zsh is already installed!"
 fi
 
 # Set Powerlevel10k as the default theme 
-sed -i '' 's/^ZSH_THEME=.*/ZSH_THEME="powerlevel10k\/powerlevel10k"/' ~/.zshrc
+sed -i '' 's/^ZSH_THEME=.*/ZSH_THEME="powerlevel10k\/powerlevel10k"/' "$ZSHRC"
 
 # Clone zsh-autosuggestions if not already installed
 if [ ! -d "$OH_MY_ZSH_CUSTOM/plugins/zsh-autosuggestions" ]; then
@@ -58,12 +49,13 @@ else
     echo "zsh-syntax-highlighting is already in the plugins list. Skipping."
 fi
 
-bash link-config-files.sh
+BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+THEME_FILES="$BASEDIR/iterm-themes"
 
-defaults write -g KeyRepeat -int 2
-defaults write -g InitialKeyRepeat -int 15
-defaults write -g com.apple.swipescrolldirection -bool false
-
-killall cfprefsd
-killall Dock
-killall Finder
+# Check if the folder exists
+if [ -d "$THEME_FILES" ]; then
+    echo "Opening all theme files for iTerm..."
+    open "$THEME_FILES"/*
+else
+    echo "Error: Folder does not exist: $THEME_FILES"
+fi

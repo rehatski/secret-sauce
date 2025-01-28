@@ -118,7 +118,6 @@
   "terminal.integrated.fontFamily": "PragmataPro",
   "terminal.integrated.fontSize": 12,
   "breadcrumbs.enabled": true,
-  "workbench.colorTheme": "Tokyo Night",
   "workbench.startupEditor": "newUntitledFile",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "[jsonc]": {
@@ -147,5 +146,6 @@
   },
   "editor.autoClosingBrackets": "never",
   "editor.autoClosingQuotes": "never",
-  "vsicons.dontShowNewVersionMessage": true
+  "vsicons.dontShowNewVersionMessage": true,
+  "workbench.colorTheme": "GitHub Dark Default"
 }

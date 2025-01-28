@@ -66,18 +66,4 @@ else
     echo "Custom Zsh configuration already linked in .zshrc. Skipping."
 fi
 
-# NVM configuration block
-NVM_CONFIG='
-# Load nvm
-export NVM_DIR="$HOME/.nvm"
-export NVM_SYMLINK_CURRENT=true
-[ -s "$(brew --prefix nvm)/nvm.sh" ] && \. "$(brew --prefix nvm)/nvm.sh"
-'
 
-# Check if the NVM configuration is already in .zshrc
-if ! grep -q "export NVM_SYMLINK_CURRENT=true" "$OH_MY_ZSH_RC"; then
-    echo "Adding NVM configuration to .zshrc..."
-    echo "$NVM_CONFIG" >> "$OH_MY_ZSH_RC"
-else
-    echo "NVM configuration already exists in .zshrc. Skipping."
-fi
