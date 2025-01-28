@@ -55,3 +55,5 @@ for extension in "${extensions[@]}"; do
 done
 
 echo "All extensions installed!"
+
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
