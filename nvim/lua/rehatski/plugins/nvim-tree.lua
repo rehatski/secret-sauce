@@ -16,7 +16,7 @@ return {
 			vim.fn.sign_define("DiagnosticSignHint", { text = "󰢚 ", texthl = "DiagnosticSignHint" })
 
 			require("neo-tree").setup({
-				enable_normal_mode_for_inputs = false,
+				-- enable_normal_mode_for_inputs = false,
 				default_component_configs = {
 					icon = {
 						folder_closed = "",

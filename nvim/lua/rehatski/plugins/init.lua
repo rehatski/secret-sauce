@@ -26,6 +26,7 @@ return {
 		end,
 	},
 	{ "tpope/vim-surround" },
+	{ "echasnovski/mini.nvim", version = "*" },
 	{
 		"gelguy/wilder.nvim",
 		config = function()
